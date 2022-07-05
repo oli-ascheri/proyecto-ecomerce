@@ -1,3 +1,4 @@
+// Productos //
 
 function producto(nombre,precio,codigo){
     this.nombre = nombre
@@ -13,12 +14,14 @@ const productoHalls = new producto ("HALLS",320,5204)
 const productoTang = new producto ("TANG",280,300)
 const productoClight = new producto ("CLIGHT",290,333)
 
+// Informacion // 
+
 function mostrarArticulo (nombre,precio,codigo){
     alert ("Articulo: " + nombre + " / Precio: $" + precio + " / Codigo: " + codigo)
 }
 
 function informacionProductos() {
-    let producto = prompt("Lista de productos: OREO / PEPITOS / MILKA / BELDENT / HALLS / TANG / CLIGHT - SALIR").toUpperCase()
+    let producto = prompt("Lista de productos: OREO / PEPITOS / MILKA / BELDENT / HALLS / TANG / CLIGHT / SALIR").toUpperCase()
     
     while ( producto != "SALIR"){
 
@@ -48,21 +51,23 @@ function informacionProductos() {
                 alert("Por favor, escriba nuevamente alguna de las opciones disponibles.")
         }
     
-        producto = prompt("Lista de productos: OREO / PEPITOS / MILKA / BELDENT / HALLS / TANG / CLIGHT - SALIR").toUpperCase()
+        producto = prompt("Lista de productos: OREO / PEPITOS / MILKA / BELDENT / HALLS / TANG / CLIGHT / SALIR").toUpperCase()
     
     }
 
 }
 
-function mostrarTotal (total) {
-    alert("El total es de: $ " + total)
-}
+// COMPRAR // 
 
 let total = 0
 let cantidad = 0
 
 function sumaTotal (precio) {
     total += precio
+}
+
+function mostrarTotal (total) {
+    alert("El total es de: $ " + total)
 }
 
 function sumar (num1, num2){
@@ -74,7 +79,7 @@ function multiplicar (num1,num2) {
 }
 
 function listaDeProductos () {
-    let productos = prompt("Comprar productos: OREO / PEPITOS / MILKA / BELDENT / HALLS / TANG / CLIGHT - SALIR").toUpperCase()
+    let productos = prompt("Ingresar cantidad: OREO / PEPITOS / MILKA / BELDENT / HALLS / TANG / CLIGHT / TOTAL / OK = comprar / SALIR").toUpperCase()
 
     while ( productos != "SALIR"){
 
@@ -121,11 +126,37 @@ function listaDeProductos () {
                 sumaTotal(multiplicar (productoClight.precio,cantidad))
                 mostrarTotal(total)
                 break
+            case "TOTAL":
+                    mostrarTotal(total)
+                    break
+            case "OK":
+                    consultaComprar ()
+                    break
             default: 
                 alert("Por favor, escriba nuevamente alguna de las opciones disponibles.")
         }
     
-        productos = prompt("Lista de productos: OREO / PEPITOS / MILKA / BELDENT / HALLS / TANG / CLIGHT - SALIR").toUpperCase()
+        productos = prompt("Ingresar cantidad: OREO / PEPITOS / MILKA / BELDENT / HALLS / TANG / CLIGHT / TOTAL / OK = comprar / SALIR").toUpperCase()
+    }
+}
+
+let consulta
+
+function restarIva (num3) {
+    return num3 / 1.21
+}
+
+
+function consultaComprar () {
+
+   consulta = prompt("¿Precio con iva? SI o NO").toUpperCase()
+    switch (consulta) {
+        case "NO":
+            mostrarTotal(restarIva(total).toFixed(2))
+        break
+        case "SI":
+            mostrarTotal(total)
+
     }
 }
 
@@ -146,6 +177,10 @@ function listaDeProductos () {
 
 
 
+
+
+// Estructura general //
+
 alert("¡Te damos la bienvenida a Dulzura Company! Selecciona que quieres hacer:")
 let decision = prompt("INFORMACION: detalles de nuestros productos / COMPRAR: comprar productos / SALIR").toUpperCase()
 
@@ -157,7 +192,6 @@ while ( decision != "SALIR"){
             break
         case "COMPRAR":
             listaDeProductos ();
-        
             break
         default: 
             alert("Por favor, escriba nuevamente alguna de las opciones disponibles.")

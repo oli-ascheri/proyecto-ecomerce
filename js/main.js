@@ -67,7 +67,7 @@ function sumaTotal (precio) {
 }
 
 function mostrarTotal (total) {
-    alert("El total es de: $ " + total)
+    alert("El total es de $" + total)
 }
 
 function sumar (num1, num2){
@@ -148,7 +148,7 @@ function restarIva (num3) {
 
 //lista
 
- let vendedores = ['Daniel Pallares' , 'Jorge Gonzales' , 'Kathy Suarez' , 'Gabriel Pallas' , 'Federico Rramirez' , ' Leonelo Ascheri']
+ let vendedores = ['Daniel Pallares' , 'Jorge Gonzales' , 'Kathy Soraz' , 'Gabriel Pallas' , 'Federico Ramirez' , 'Leonelo Archeri']
 
  function listaVendedores () {
      alert (vendedores.join(', '))
@@ -164,8 +164,20 @@ function asignarVendedor () {
     alert(vendedores.join(', '))
 }
 
+//eliminar
+
+function eliminarVendedor () {
+    let borrar = prompt("Ingrese nombre del vendedor que desee eliminar")
+    const findProduct = (vendedores.find(item => item == borrar))
+    const productIndex = vendedores.indexOf(findProduct)
+    vendedores.splice(productIndex, 1)
+    alert (vendedores.join(', '))
+}
+
+// Vendedores - estructura general
+
  function opcionesVendedor() {
-     let consultaVendedor = prompt("LISTA = Lista de vendedores / ASIGNAR = Asignar vendedor / SALIR").toUpperCase()
+     let consultaVendedor = prompt("LISTA = Lista de vendedores / ASIGNAR = Asignar vendedor / ELIMINAR = Eliminar vendedor / SALIR").toUpperCase()
     
      while ( consultaVendedor != "SALIR"){
 
@@ -176,11 +188,14 @@ function asignarVendedor () {
              case "ASIGNAR":
                  asignarVendedor ()
                  break
+             case "ELIMINAR":
+                 eliminarVendedor()
+                 break
              default: 
                  alert("Por favor, escriba nuevamente alguna de las opciones disponibles.")
          }
     
-         consultaVendedor = prompt("LISTA = Lista de vendedores / ASIGNAR = Asignar vendedor / SALIR").toUpperCase()
+         consultaVendedor = prompt("LISTA = Lista de vendedores / ASIGNAR = Asignar vendedor / ELIMINAR = Eliminar vendedor / SALIR").toUpperCase()
      }
 }
 

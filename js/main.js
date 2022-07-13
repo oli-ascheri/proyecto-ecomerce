@@ -140,49 +140,54 @@ function listaDeProductos () {
     }
 }
 
-let consulta
-
 function restarIva (num3) {
     return num3 / 1.21
 }
 
+// Vendedores 
 
-function consultaComprar () {
+//lista
 
-   consulta = prompt("¿Precio con iva? SI o NO").toUpperCase()
-    switch (consulta) {
-        case "NO":
-            mostrarTotal(restarIva(total).toFixed(2))
-        break
-        case "SI":
-            mostrarTotal(total)
+ let vendedores = ['Daniel Pallares' , 'Jorge Gonzales' , 'Kathy Suarez' , 'Gabriel Pallas' , 'Federico Rramirez' , ' Leonelo Ascheri']
 
-    }
+ function listaVendedores () {
+     alert (vendedores.join(', '))
+ }
+ 
+let nuevoVendedor
+
+//asignar
+
+function asignarVendedor () {
+    nuevoVendedor = prompt("Ingrese nombre y apellido del vendedor:")
+    vendedores.push(nuevoVendedor)
+    alert(vendedores.join(', '))
 }
 
+ function opcionesVendedor() {
+     let consultaVendedor = prompt("LISTA = Lista de vendedores / ASIGNAR = Asignar vendedor / SALIR").toUpperCase()
+    
+     while ( consultaVendedor != "SALIR"){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         switch (consultaVendedor) {
+             case "LISTA":
+                 listaVendedores ()
+                 break
+             case "ASIGNAR":
+                 asignarVendedor ()
+                 break
+             default: 
+                 alert("Por favor, escriba nuevamente alguna de las opciones disponibles.")
+         }
+    
+         consultaVendedor = prompt("LISTA = Lista de vendedores / ASIGNAR = Asignar vendedor / SALIR").toUpperCase()
+     }
+}
 
 // Estructura general //
 
 alert("¡Te damos la bienvenida a Dulzura Company! Selecciona que quieres hacer:")
-let decision = prompt("INFORMACION: detalles de nuestros productos / COMPRAR: comprar productos / SALIR").toUpperCase()
+let decision = prompt("INFORMACION: Detalles de nuestros productos / COMPRAR: Comprar productos / VENDEDORES: Caracteristicas fuerza de ventas / SALIR").toUpperCase()
 
 while ( decision != "SALIR"){
 
@@ -193,11 +198,14 @@ while ( decision != "SALIR"){
         case "COMPRAR":
             listaDeProductos ();
             break
+        case "VENDEDORES":
+            opcionesVendedor();
+            break
         default: 
             alert("Por favor, escriba nuevamente alguna de las opciones disponibles.")
     }
 
-    decision = prompt("INFORMACION: detalles de nuestros productos / COMPRAR: comprar productos / SALIR").toUpperCase()
+    decision = prompt("INFORMACION: Detalles de nuestros productos / COMPRAR: Comprar productos / VENDEDORES: Caracteristicas fuerza de ventas / SALIR").toUpperCase()
 
 }
 

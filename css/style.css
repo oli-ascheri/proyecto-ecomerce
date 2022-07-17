@@ -92,7 +92,7 @@ body {
 }
 
 .link{
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Lobster', cursive;
     padding: 0 10px;
     margin: 0 5px;
@@ -102,7 +102,7 @@ body {
 }
 
 .link:hover{
-    font-size: 25px;
+    font-size: 35px;
    
     color: #70286c;
 }
@@ -151,7 +151,7 @@ body {
 }
 
 .comenzar-boton {
-    background-color: #fd29c4;
+    background-color: #fc29c4;
     border: none;
     border-radius: 8px;
     padding: 14px 40px;
@@ -229,3 +229,87 @@ footer{
 .footer-link:hover{
     color: #fff;
 }
+
+/* ECOMERCE */
+
+  p {
+    line-height:1.8;
+  }
+
+  .producto {
+    background-color: #fceff8;
+    border-radius: 20px;
+    max-width: 30%;
+    padding: 10px;
+    margin-bottom: 30px;
+    box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .card .card-image .card-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(12, 12, 12);
+    font-family: 'Lobster', cursive;
+    position: unset;
+    font-size: 27px;
+  }
+
+  
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card-content p {
+    font-size: 23px;
+  }
+
+  .car-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .car-content a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  }
+
+  .car-content i {
+    color: rgb(255, 255, 255);
+    margin-right: 5px;
+  }
+
+  .car-buttom {
+    background-color: #f25151;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 10px;
+    margin-bottom: 3%;
+    width: 65%;
+    height: 1rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-buttom:hover {
+    background-color: #c03434;
+}
+
+/* Formato contenedor de productos */
+
+.formato-contenedor {
+    max-width: 1200px;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }

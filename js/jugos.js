@@ -1,0 +1,1 @@
+mostrarProductos(stockJugos, contenedorJugos)

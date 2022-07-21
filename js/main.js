@@ -14,40 +14,33 @@ let stockChocolates = stock.filter (chocolates => chocolates.tipo === "chocolate
 let stockPremezclas = stock.filter (premezclas => premezclas.tipo === "premezclas")
 let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
 
-let codigoGalletas = stock.filter (galletas => galletas.codigo === "galletas")
-
-
-
 //Ecomerce
 
-const carrito = []
+  function mostrarProductos(stock, contenedor){
 
-//  function mostrarProductos(stock, contenedor){
+    stock.forEach((item) => {
+        let div = document.createElement('div')
+        div.className = 'producto'
+        div.innerHTML = `<div class="card">
+                            <div class="card-image">
+                                <img src="${item.img}">
+                                <span class="card-title">${item.nombre}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>$${item.precio}</p>
+                            </div>
+                            <div class="car-content">
+                                <button onClick="agregarCarrito(${stock.indexOf(item)})" id="boton" class="car-buttom">
+                                        Agregar al carrito
+                                    <i class="fa fa-cart-shopping">
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                        `
+            contenedor.appendChild(div) 
 
-//      stock.forEach((item) => {
-//      let div = document.createElement('div')
-//      div.className = 'producto'
-//      div.innerHTML = `<div class="card">
-//                          <div class="card-image">
-//                              <img src="${item.img}">
-//                              <span class="card-title">${item.nombre}</span>
-//                          </div>
-//                          <div class="card-content">
-//                              <p>$${item.precio}</p>
-//                          </div>
-//                          <div class="car-content">
-//                              <button id="${item}" class="car-buttom">
-//                                  <i class="fa fa-cart-shopping">
-//                                  </i>
-//                                  <a href="#"> Agregar al carrito 
-//                                  </a>
-//                              </button>
-//                          </div>
-//                      </div>
-//                      `
-//          contenedor.appendChild(div) 
-         
-//      })
-
-//  }
+        })
+    
+ }
 

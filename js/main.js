@@ -16,9 +16,9 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
 
 //Ecomerce
 
-  function mostrarProductos(stock, contenedor){
+  function mostrarProductos(stockF, contenedor){
 
-    stock.forEach((item) => {
+    stockF.forEach((item) => {
         let div = document.createElement('div')
         div.className = 'producto'
         div.innerHTML = `<div class="card">
@@ -43,4 +43,11 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
         })
     
  }
+
+ const agregarCarrito = (item) => {
+
+    carritoDeCompras.push(stock[item])
+    
+    console.log(carritoDeCompras)
+}
 

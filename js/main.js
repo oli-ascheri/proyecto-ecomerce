@@ -1,4 +1,3 @@
-
 // BUSCADOR
 let carritoDeCompras = []
 
@@ -44,10 +43,27 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
     
  }
 
+// Carrito
+
  const agregarCarrito = (item) => {
 
-    carritoDeCompras.push(stock[item])
     
+
+    carritoDeCompras.push(stock[item])
+
     console.log(carritoDeCompras)
+
+   
+    
+    const enJSON = JSON.stringify(carritoDeCompras)
+    guardarLocal("Carrito de compras", enJSON)
+
+  
+    
 }
 
+// Local Storage
+
+const guardarLocal = (clave, valor) => {
+   localStorage.setItem(clave, valor)
+}

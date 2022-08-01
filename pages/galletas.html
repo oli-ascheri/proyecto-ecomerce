@@ -23,19 +23,33 @@
 
 <body>
 
-    <div class="Cart-Container">
-        <div class="Header">
-            <h3 class="Heading">Carro de compras</h3>
-            <h5 class="Action">Eliminar todo</h5>
+   <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+    <div class="modal-content">
+        <div class="Cart-Container">
+            <div class="Header">
+                <h3 class="Heading">Carro de compras</h3>
+                <!-- <h5 class="Action">Eliminar todo</h5> -->
+                <span class="close">&times;</span>
+            </div>
+
+            <div id="carro-div">
+              
+            </div>
+            </div>
         </div>
-        <div id= "carro-div"></div>
     </div>
+
 
     <nav class="nav-bar">
         <div class="nav">
-            <a href="../index.html">
-                <img src="../img/dulzura-company-logo.png" class="brand-logo" alt="dulzura-company-logo">
-            </a>
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <img src="../img/dulzura-company-logo.png" class="brand-logo" alt="dulzura-company-logo">
+                </a>
+            </div>    
             <div class="nav-items">
                 <div class="search">
                     <input type="text" class="search-box" placeholder="Caramelos, Galletas, Chocolates">
@@ -43,7 +57,7 @@
                 </div>
                 <a href="#"><i class="fa-solid fa-user"></i></a>
                 <a href="#"><i class="fa-solid fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <button id="myBtn"><i class="fas fa-shopping-cart"></i></button>
             </div>
         </div>
     </nav>

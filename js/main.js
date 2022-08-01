@@ -1,9 +1,12 @@
 // BUSCADOR
-let carritoDeCompras = []
+// OPERADOR LOGICO OR
 
-if(localStorage.getItem("Carrito de compras") != null){
-    carritoDeCompras = JSON.parse(localStorage.getItem("Carrito de compras"))
-}
+let carritoDeCompras = JSON.parse(localStorage.getItem("Carrito de compras")) || []
+
+// let carritoDeCompras = []
+// if(localStorage.getItem("Carrito de compras") != null){
+//     carritoDeCompras = JSON.parse(localStorage.getItem("Carrito de compras"))
+// }
 
 let contenedorGalletas = document.getElementById ('contenedor-productos-galletas')
 let contenedorCaramelos = document.getElementById ('contenedor-productos-caramelos')
@@ -58,21 +61,24 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
     guardarLocal("Carrito de compras", enJSON)
 
     carritoDeCompras.forEach((item) => {
-        let div = document.createElement('div')
-        div.className = 'producto'
-        div.innerHTML = `<div class="Cart-Items">
-                            <div class="about">
-                                <h1 class="title">${item.nombre}<h1>
-                                <h3 class="subtitle">250ml</h3>
-                                <img src="${item.img}" style={{ height="30px" }}/>
-                            </div>
-                            <div class="counter"></div>
-                            <div class="prices"></div>
+    let div = document.createElement('div')
+    div.innerHTML = `<div class="Cart-Items">
+                        <div class="about">
+                            <img src="${item.img}" style={{ height="50px" width="50px"}}/>
+                            <h1 class="title">${item.nombre}<h1>
                         </div>
-                        `
-            carroDiv.appendChild(div) 
+                        <div class="counter"></div>
+                            <div class="prices">
+                                <div class="amount">$ ${item.precio}</div>
+                                <div class="remove"><u>Remove</u></div>
+                            </div>
+                        </div>
+                    </div>
+                    `
+        carroDiv.appendChild(div) 
 
-        })
+    })
+
 }
 
 // Local Storage
@@ -81,4 +87,29 @@ const guardarLocal = (clave, valor) => {
    localStorage.setItem(clave, valor)
 }
 
-// Carrito de compras
+
+            // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }

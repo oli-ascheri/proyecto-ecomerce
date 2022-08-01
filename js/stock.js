@@ -1,6 +1,6 @@
 let stock = [
     //caramelos
-    {nombre: "Beldent Menta", tipo: "caramelos", id: 5076, precio: 320, img: '../img/beldent-menta.jpg'},
+    {nombre: "Beldent Menta", tipo: "caramelos", codigo: 5076, precio: 320, img: '../img/beldent-menta.jpg'},
     {nombre: "Beldent Menta fuerte", tipo: "caramelos", codigo: 5078, precio: 320, img: '../img/beldent-negro.jpg'},
     {nombre: "Beldent Mentol", tipo: "caramelos", codigo: 5080, precio: 320, img: '../img/beldent-mentol.jpg'},
     {nombre: "Beldent Tuti fruti", tipo: "caramelos", codigo: 5086, precio: 320, img: '../img/beldent-tuti.jpg'},

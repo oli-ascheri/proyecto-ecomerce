@@ -26,6 +26,8 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
 
   function mostrarProductos(stockF, contenedor){
 
+
+
     stockF.forEach((item) => {
         let div = document.createElement('div')
         div.className = 'producto'
@@ -57,8 +59,20 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
  const agregarCarrito = (item) => {
     carritoDeCompras.push(stock[item])
     console.log(carritoDeCompras)
+
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '¡Agregado al carrito de compras!',
+        showConfirmButton: false,
+        iconColor: "#fc29c4",
+        timer: 1200
+      })
+
     const enJSON = JSON.stringify(carritoDeCompras)
     guardarLocal("Carrito de compras", enJSON)
+
+    
 
     carritoDeCompras.forEach((item) => {
     let div = document.createElement('div')
@@ -113,3 +127,4 @@ const guardarLocal = (clave, valor) => {
             modal.style.display = "none";
         }
         }
+

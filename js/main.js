@@ -15,6 +15,7 @@ let contenedorPremezclas = document.getElementById ('contenedor-productos-premez
 let contenedorJugos = document.getElementById ('contenedor-productos-jugos')
 
 let carroDiv = document.getElementById ('carro-div')
+let usuarioDiv = document.getElementById ('usuario-div')
 
 let stockGalletas = stock.filter (galletas => galletas.tipo === "galletas")
 let stockCaramelos = stock.filter (caramelos => caramelos.tipo === "caramelos")
@@ -25,8 +26,6 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
 //Ecomerce
 
   function mostrarProductos(stockF, contenedor){
-
-
 
     stockF.forEach((item) => {
         let div = document.createElement('div')
@@ -49,9 +48,7 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
                         </div>
                         `
             contenedor.appendChild(div) 
-
         })
-    
  }
 
 // Carrito
@@ -72,7 +69,6 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
     const enJSON = JSON.stringify(carritoDeCompras)
     guardarLocal("Carrito de compras", enJSON)
 
-    
 
     carritoDeCompras.forEach((item) => {
     let div = document.createElement('div')
@@ -101,30 +97,70 @@ const guardarLocal = (clave, valor) => {
    localStorage.setItem(clave, valor)
 }
 
+// Abrir carrito de compras 
 
-            // Get the modal
-        var modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
+let btn = document.getElementById("myBtn");
+let span = document.getElementsByClassName("close")[0];
 
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
+    btn.onclick = function() {
         modal.style.display = "block";
-        }
+    }
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+    span.onclick = function() {
         modal.style.display = "none";
-        }
+    }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
+    window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
+    }
+
+// Abrir usuario
+
+
+let modal3 = document.getElementById("myModal-3");
+let btn3 = document.getElementById("myBtn3");
+let span3 = document.getElementsByClassName("close-3")[0];
+let botonUsuario = document.getElementById("boton-datos");
+
+    btn3.onclick = function() {
+        modal3.style.display = "block";
+       
+    }
+
+    span3.onclick = function() {
+        modal3.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal3) {
+            modal3.style.display = "none";
         }
+    }
+
+    botonUsuario.onclick = () => {
+        obtenerDatos()
+    }
+
+// AJAX & Fetch
+
+const obtenerDatos = () => {
+    fetch('../json/usuarios.json')
+        .then(response => response.json())
+        .then(result => {
+            let datos = result;
+            datos.forEach(usuario => {
+                usuarioDiv.innerHTML += `
+                <div>
+                    <h3>Usuario: ${usuario.usuario}</h3>
+                    <h4>Datos:</h4>
+                    <p>Nombre: ${usuario.nombre}</p>
+                    <p>Apellido: ${usuario.apellido}</p>
+                    <p>Edad: ${usuario.edad}</p>
+                    `
+            })
+        })
+}
 

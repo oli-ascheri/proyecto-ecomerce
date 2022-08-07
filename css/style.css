@@ -19,18 +19,17 @@ body {
 
   .Cart-Container {
     width: 70%;
-    height: 60%;
+    height: 100%;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0px 25px 40px #1687d933;
-    top: 70px;
-    position: fixed;
+    margin: 70px;
    }
 
    .Header{
     margin: auto;
     border-radius: 20px 20px 0px 0px;
-    height: 15%;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -181,7 +180,7 @@ body {
     outline: none;
 }
 
-.search-btn{
+#search-btn{
     width: 20%;
     height: 40px;
     padding: 10px 20px;
@@ -197,7 +196,7 @@ body {
     font-family: 'Lobster', cursive;
 }
 
-.search-box::placeholder{
+#search-box::placeholder{
     color: #a4479f;
 }
 
@@ -214,15 +213,15 @@ body {
     color: #70286c;
 }
 
-.nav-items #myBtn {
+.nav-items button {
     color: #a4479f;
     border: none;
-    background-color: rgb(255,133,248);
+    background-color: rgb(254, 139, 249);
     cursor: pointer;
-    margin-left: 20px;
+    padding: 10px;
 }
 
-.nav-items #myBtn:hover{
+.nav-items button:hover{
     color: #70286c;
 }
 
@@ -399,7 +398,6 @@ footer{
     position: unset;
     font-size: 27px;
   }
-
   
   img {
     width: 100%;
@@ -462,7 +460,7 @@ footer{
   }
 
 
-  /* The Modal (background) */
+  /* Estilos carro de compras */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -476,9 +474,7 @@ footer{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   
-  /* Modal Content/Box */
   .modal-content {
-
     display: flex;
     justify-content: center; /* 15% from the top and centered */
     /*padding: 20px;
@@ -486,7 +482,7 @@ footer{
     width: 80%; /* Could be more or less, depending on screen size */
   
   }
-  /* The Close Button */
+  /* Boton cerrar carrito de compras */
   .close {
     color: rgb(255, 255, 255);
     margin-right: 15px;
@@ -500,3 +496,60 @@ footer{
     text-decoration: none;
     cursor: pointer;
   }
+
+   /* Estilos ventana usuario */  
+  
+  .close-3 {
+    color: rgb(255, 255, 255);
+    margin-right: 15px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close-3:hover,
+  .close-3:focus {
+    color: rgb(225, 217, 217);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .contenedor2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #usuario-div {
+    margin: 20px 20px;    
+
+    display: flex;
+
+    align-items: center;
+  }
+
+  .usuario-container {
+    width: 70%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #1687d933;
+    margin: 50px 0px;
+    
+   }
+
+   #boton-datos {
+    background-color: #fc29c4;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 40px;
+    width: 250px;
+    margin: 20px;
+    color: #fff;
+    font-size: larger;
+    align-self: center;
+    display: flex;
+    font-weight: bold;
+    }
+
+    #boton-datos:hover {
+    background-color: #c9269e;
+    }

@@ -22,6 +22,39 @@
 </head>
 
 <body>
+
+   <!-- Carrito de compras -->
+   <div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="Cart-Container">
+            <div class="Header">
+                <h3 class="Heading">Carro de compras</h3>
+                <span class="close">&times;</span>
+            </div>
+
+            <div id="carro-div">
+              
+            </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Ventana usuario -->
+      <div id="myModal-3" class="modal">
+        <div class="modal-content">
+            <div class="usuario-container">
+                <div class="Header">
+                    <h3 class="Heading">Usuario</h3>
+                    <span class="close-3">&times;</span>
+                </div>
+                <div class="contenedor2">
+                    <button id="boton-datos">Informacion de los usuarios</button>
+                    <div id="usuario-div"></div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
     <nav class="nav-bar">
         <div class="nav">
             <a href="../index.html">
@@ -30,11 +63,11 @@
             <div class="nav-items">
                 <div class="search">
                     <input type="text" class="search-box" placeholder="Caramelos, Galletas, Chocolates">
-                    <button class="search-btn">Buscar</button>
+                    <button id="search-btn">Buscar</button>
                 </div>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
+                <button id="myBtn3"><i class="fa-solid fa-user"></i></button>
                 <a href="#"><i class="fa-solid fa-heart"></i></a>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                <button id="myBtn"><i class="fas fa-shopping-cart"></i></button>
             </div>
         </div>
     </nav>

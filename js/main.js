@@ -23,9 +23,15 @@ let stockChocolates = stock.filter (chocolates => chocolates.tipo === "chocolate
 let stockPremezclas = stock.filter (premezclas => premezclas.tipo === "premezclas")
 let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
 
+// Sweet Alert
+
+function cartelAprobado() {
+    
+}
+
 //Ecomerce
 
-  function mostrarProductos(stockF, contenedor){
+function mostrarProductos(stockF, contenedor){
 
     stockF.forEach((item) => {
         let div = document.createElement('div')
@@ -53,9 +59,25 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
 
 // Carrito
 
- const agregarCarrito = (item) => {
-    carritoDeCompras.push(stock[item])
-    console.log(carritoDeCompras)
+const agregarCarrito = (item) => {
+
+    let itemCarrito = stock[item]
+    let enCarrito = carritoDeCompras.some(prod => prod.codigo == itemCarrito.codigo)
+    
+    
+    if (enCarrito == true) {
+        carritoDeCompras.push(itemCarrito)
+        itemCarrito.cantidad++
+        console.log(carritoDeCompras)
+        
+    } else {
+        let indexCarrito = carritoDeCompras.findIndex(prod => prod.codigo == itemCarrito.codigo)
+        carritoDeCompras[indexCarrito].cantidad++
+    }
+
+
+    const enJSON = JSON.stringify(carritoDeCompras)
+    guardarLocal("Carrito de compras", enJSON)
 
     Swal.fire({
         position: 'center',
@@ -64,15 +86,12 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
         showConfirmButton: false,
         iconColor: "#fc29c4",
         timer: 1200
-      })
+    })
 
-    const enJSON = JSON.stringify(carritoDeCompras)
-    guardarLocal("Carrito de compras", enJSON)
-
-
+    carroDiv.innerHTML = ""
     carritoDeCompras.forEach((item) => {
-    let div = document.createElement('div')
-    div.innerHTML = `<div class="Cart-Items">
+        let div = document.createElement('div')
+        div.innerHTML = `<div class="Cart-Items">
                         <div class="about">
                             <img src="${item.img}" style={{ height="50px" width="50px"}}/>
                             <h1 class="title">${item.nombre}<h1>
@@ -80,87 +99,108 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
                         <div class="counter"></div>
                             <div class="prices">
                                 <div class="amount">$ ${item.precio}</div>
-                                <div class="remove"><u>Remove</u></div>
+                                <div class="remove">
+                                    <button id="remove">
+                                        Eliminar item
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     `
-        carroDiv.appendChild(div) 
+        carroDiv.appendChild(div)
 
     })
 
 }
 
-// Local Storage
+// Eliminado item
 
-const guardarLocal = (clave, valor) => {
-   localStorage.setItem(clave, valor)
+let remover = document.getElementById ("remove")
+
+
+remover.addEventListener("click", eliminarArticulo())
+
+
+const eliminarArticulo = (item) => {
+    let indexCarro = item.findIndex(prod => prod.codigo == item.codigo)
+    let eliminarItem = carritoDeCompras.splice (indexCarro, 1)
 }
 
+                
+// Local Storage
+                
+const guardarLocal = (clave, valor) => {
+    localStorage.setItem(clave, valor)
+                }
+                
 // Abrir carrito de compras 
-
+                
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("myBtn");
 let span = document.getElementsByClassName("close")[0];
-
-    btn.onclick = function() {
-        modal.style.display = "block";
+                
+btn.onclick = function() {
+    modal.style.display = "block";
     }
-
-    span.onclick = function() {
+                
+span.onclick = function() {
+    modal.style.display = "none";
+}
+                
+window.onclick = function(event) {
+    if (event.target == modal) {
         modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
+                    }}
+                
 // Abrir usuario
-
 
 let modal3 = document.getElementById("myModal-3");
 let btn3 = document.getElementById("myBtn3");
 let span3 = document.getElementsByClassName("close-3")[0];
 let botonUsuario = document.getElementById("boton-datos");
+                
 
-    btn3.onclick = function() {
-        modal3.style.display = "block";
-       
-    }
+btn3.onclick = function() {
+    modal3.style.display = "block";
+    
+}
 
-    span3.onclick = function() {
+span3.onclick = function() {
+    modal3.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal3) {
         modal3.style.display = "none";
-    }
+}
+}
 
-    window.onclick = function(event) {
-        if (event.target == modal3) {
-            modal3.style.display = "none";
-        }
-    }
+botonUsuario.onclick = () => {
+    obtenerDatos()
+}
 
-    botonUsuario.onclick = () => {
-        obtenerDatos()
-    }
+//
+
 
 // AJAX & Fetch
-
-const obtenerDatos = () => {
-    fetch('../json/usuarios.json')
+    
+    const obtenerDatos = () => {
+        fetch('../json/usuarios.json')
         .then(response => response.json())
         .then(result => {
             let datos = result;
             datos.forEach(usuario => {
                 usuarioDiv.innerHTML += `
                 <div>
-                    <h3>Usuario: ${usuario.usuario}</h3>
-                    <h4>Datos:</h4>
-                    <p>Nombre: ${usuario.nombre}</p>
-                    <p>Apellido: ${usuario.apellido}</p>
-                    <p>Edad: ${usuario.edad}</p>
-                    `
+                <h3>Usuario: ${usuario.usuario}</h3>
+                <h4>Datos:</h4>
+                <p>Nombre: ${usuario.nombre}</p>
+                <p>Apellido: ${usuario.apellido}</p>
+                <p>Edad: ${usuario.edad}</p>
+                `
             })
         })
-}
-
+    }
+    
+    

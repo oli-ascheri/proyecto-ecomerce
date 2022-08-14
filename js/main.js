@@ -87,6 +87,9 @@ const agregarCarrito = (item) => {
         iconColor: "#fc29c4",
         timer: 1200
     })
+}
+
+    const mostrarCarrito = () => {
 
     carroDiv.innerHTML = ""
     carritoDeCompras.forEach((item) => {
@@ -100,7 +103,7 @@ const agregarCarrito = (item) => {
                             <div class="prices">
                                 <div class="amount">$ ${item.precio}</div>
                                 <div class="remove">
-                                    <button id="remove">
+                                    <button id="remove" onClick="eliminarArticulo(${carritoDeCompras.indexOf(item)})">
                                         Eliminar item
                                     </button>
                                 </div>
@@ -111,20 +114,23 @@ const agregarCarrito = (item) => {
         carroDiv.appendChild(div)
 
     })
+    }
 
-}
 
 // Eliminado item
 
-let remover = document.getElementById ("remove")
+// let remover = document.getElementById ("remove")
 
 
-remover.addEventListener("click", eliminarArticulo())
+// remover.addEventListener("click", eliminarArticulo())
 
 
 const eliminarArticulo = (item) => {
-    let indexCarro = item.findIndex(prod => prod.codigo == item.codigo)
-    let eliminarItem = carritoDeCompras.splice (indexCarro, 1)
+    console.log(item)
+    carritoDeCompras.splice (item, 1)
+    const enJSON = JSON.stringify(carritoDeCompras)
+    guardarLocal("Carrito de compras", enJSON)
+    mostrarCarrito()
 }
 
                 
@@ -132,7 +138,7 @@ const eliminarArticulo = (item) => {
                 
 const guardarLocal = (clave, valor) => {
     localStorage.setItem(clave, valor)
-                }
+    }
                 
 // Abrir carrito de compras 
                 
@@ -142,6 +148,7 @@ let span = document.getElementsByClassName("close")[0];
                 
 btn.onclick = function() {
     modal.style.display = "block";
+    mostrarCarrito()
     }
                 
 span.onclick = function() {
@@ -186,6 +193,7 @@ botonUsuario.onclick = () => {
 // AJAX & Fetch
     
     const obtenerDatos = () => {
+        usuarioDiv.innerHTML = ""
         fetch('../json/usuarios.json')
         .then(response => response.json())
         .then(result => {

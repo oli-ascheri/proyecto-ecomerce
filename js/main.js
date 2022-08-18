@@ -3,11 +3,6 @@
 
 let carritoDeCompras = JSON.parse(localStorage.getItem("Carrito de compras")) || []
 
-// let carritoDeCompras = []
-// if(localStorage.getItem("Carrito de compras") != null){
-//     carritoDeCompras = JSON.parse(localStorage.getItem("Carrito de compras"))
-// }
-
 let contenedorGalletas = document.getElementById ('contenedor-productos-galletas')
 let contenedorCaramelos = document.getElementById ('contenedor-productos-caramelos')
 let contenedorChocolates = document.getElementById ('contenedor-productos-chocolates')
@@ -26,7 +21,6 @@ let stockJugos = stock.filter (jugos => jugos.tipo === "jugos")
 // Sweet Alert
 
 function cartelAprobado() {
-    
 }
 
 //Ecomerce
@@ -59,22 +53,27 @@ function mostrarProductos(stockF, contenedor){
 
 // Carrito
 
+
+
+
 const agregarCarrito = (item) => {
 
     let itemCarrito = stock[item]
     let enCarrito = carritoDeCompras.some(prod => prod.codigo == itemCarrito.codigo)
+    let costoCarrito 
     
-    
-    if (enCarrito == true) {
+    if (enCarrito == false) {
         carritoDeCompras.push(itemCarrito)
-        itemCarrito.cantidad++
-        console.log(carritoDeCompras)
+        itemCarrito.cantidad = 1
+      
         
     } else {
         let indexCarrito = carritoDeCompras.findIndex(prod => prod.codigo == itemCarrito.codigo)
         carritoDeCompras[indexCarrito].cantidad++
-    }
-
+        costoCarrito = itemCarrito.precio
+        console.log(costoCarrito);
+    } 
+    
 
     const enJSON = JSON.stringify(carritoDeCompras)
     guardarLocal("Carrito de compras", enJSON)
@@ -87,16 +86,22 @@ const agregarCarrito = (item) => {
         iconColor: "#fc29c4",
         timer: 1200
     })
+
+    cantidadContador(carritoDeCompras)
 }
 
-    const mostrarCarrito = () => {
+let total   
 
+    const mostrarCarrito = () => {
+    
+    total = 0
     carroDiv.innerHTML = ""
     carritoDeCompras.forEach((item) => {
         let div = document.createElement('div')
+        total = total += (item.precio *= item.cantidad)
         div.innerHTML = `<div class="Cart-Items">
                         <div class="about">
-                            <img src="${item.img}" style={{ height="50px" width="50px"}}/>
+                            <img src="${item.img}" class="img-size">
                             <h1 class="title">${item.nombre}<h1>
                         </div>
                         <div class="counter"></div>
@@ -112,33 +117,70 @@ const agregarCarrito = (item) => {
                     </div>
                     `
         carroDiv.appendChild(div)
-
     })
+
+    console.log(total);
+    mostrarTotal()
     }
 
+// Contador del carrito
+
+const contadorCarrito = document.getElementById ('contadorCarrito')
+
+let totalContador
+
+const cantidadContador = (num) => {
+     contadorCarrito.innerText = (num).length
+}
+
+// Total
+
+
+const mostrarTotal = () => {
+
+    let div = document.createElement('div')
+    div.innerHTML = `<hr> 
+                    <div class="checkout">
+                        <div class="total">
+                        <div>
+                    <div class="Subtotal">Total</div>
+                        <div class="items">Iva incluido</div>
+                        </div>
+                    <div class="total-amount">$ ${total}</div>
+                    </div>
+                    <button class="button">Comprar</button>
+                    </div>
+                    `
+        carroDiv.appendChild(div)
+}
 
 // Eliminado item
 
-// let remover = document.getElementById ("remove")
-
-
-// remover.addEventListener("click", eliminarArticulo())
-
-
 const eliminarArticulo = (item) => {
-    console.log(item)
     carritoDeCompras.splice (item, 1)
     const enJSON = JSON.stringify(carritoDeCompras)
     guardarLocal("Carrito de compras", enJSON)
     mostrarCarrito()
+    cantidadContador(carritoDeCompras)
 }
 
-                
+// Eliminar todo
+
+let vaciarCarrito = document.getElementById('Action')
+
+vaciarCarrito.onclick = function() {
+    carritoDeCompras = []
+    const enJSON = JSON.stringify(carritoDeCompras)
+    guardarLocal("Carrito de compras", enJSON)
+    contadorCarrito.innerText = '0'
+    mostrarCarrito()
+}
+
 // Local Storage
                 
 const guardarLocal = (clave, valor) => {
     localStorage.setItem(clave, valor)
-    }
+                }
                 
 // Abrir carrito de compras 
                 
@@ -167,10 +209,8 @@ let btn3 = document.getElementById("myBtn3");
 let span3 = document.getElementsByClassName("close-3")[0];
 let botonUsuario = document.getElementById("boton-datos");
                 
-
 btn3.onclick = function() {
     modal3.style.display = "block";
-    
 }
 
 span3.onclick = function() {
@@ -187,13 +227,9 @@ botonUsuario.onclick = () => {
     obtenerDatos()
 }
 
-//
-
-
 // AJAX & Fetch
     
     const obtenerDatos = () => {
-        usuarioDiv.innerHTML = ""
         fetch('../json/usuarios.json')
         .then(response => response.json())
         .then(result => {
@@ -211,4 +247,6 @@ botonUsuario.onclick = () => {
         })
     }
     
+
+
     

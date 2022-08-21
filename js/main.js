@@ -38,6 +38,11 @@ function mostrarProductos(stockF, contenedor){
                             <div class="card-content">
                                 <p>$${item.precio}</p>
                             </div>
+                            <div class="counter">
+                                <div onClick="restarCantidades()"class="btn6">-</div>
+                                <div id="count">0</div>
+                                <div onClick="sumarCantidades()" class="btn5">+</div>
+                            </div>
                             <div class="car-content">
                                 <button onClick="agregarCarrito(${stock.indexOf(item)})" id="boton" class="car-buttom">
                                         Agregar al carrito
@@ -53,9 +58,6 @@ function mostrarProductos(stockF, contenedor){
 
 // Carrito
 
-
-
-
 const agregarCarrito = (item) => {
 
     let itemCarrito = stock[item]
@@ -69,11 +71,10 @@ const agregarCarrito = (item) => {
         
     } else {
         let indexCarrito = carritoDeCompras.findIndex(prod => prod.codigo == itemCarrito.codigo)
-        carritoDeCompras[indexCarrito].cantidad++
+        
         costoCarrito = itemCarrito.precio
-        console.log(costoCarrito);
+      
     } 
-    
 
     const enJSON = JSON.stringify(carritoDeCompras)
     guardarLocal("Carrito de compras", enJSON)
@@ -118,10 +119,24 @@ let total
                     `
         carroDiv.appendChild(div)
     })
-
-    console.log(total);
     mostrarTotal()
     }
+
+// Cantidades
+
+let cantidadCarrito = 0
+
+
+const sumarCantidades = (item) => {
+    cantidadCarrito++
+    
+  document.getElementById('count').innertext = cantidadCarrito 
+  console.log(item.codigo);
+}
+const restarCantidades = () => {
+    cantidadCarrito--
+    document.getElementsByClassName("count").innerText = cantidadCarrito
+  }
 
 // Contador del carrito
 
@@ -134,7 +149,6 @@ const cantidadContador = (num) => {
 }
 
 // Total
-
 
 const mostrarTotal = () => {
 

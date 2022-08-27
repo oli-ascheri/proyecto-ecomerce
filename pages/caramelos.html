@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <!-- FONT -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -20,40 +19,39 @@
 
 <body>
     
-   <!-- Carrito de compras -->
-   <div id="myModal" class="modal">
-    <div class="modal-content">
-        <div class="Cart-Container">
-            <div class="Header">
-                <h3 class="Heading">Carro de compras</h3>
-                <h5 id="Action">Eliminar todo</h5>
-                <span class="close">&times;</span>
-            </div>
+<!-- Carrito de compras -->
+<div id="myModal" class="modal">
+ <div class="modal-content">
+     <div class="Cart-Container">
+         <div class="Header">
+             <h3 class="Heading">Carro de compras</h3>
+             <h5 id="Action">Eliminar todo</h5>
+             <span class="close">&times;</span>
+         </div>
+         <div id="carro-div">
+         </div>
+         </div>
+     </div>
+ </div>
+ 
+<!-- Ventana usuario -->
+<div id="myModal-3" class="modal">
+  <div class="modal-content">
+      <div class="usuario-container">
+          <div class="Header">
+              <h3 class="Heading">Usuario</h3>
+              <span class="close-3">&times;</span>
+          </div>
+          <div class="contenedor2">
+              <button id="boton-datos">Informacion de los usuarios</button>
+              <div id="usuario-div"></div>
+          </div>    
+      </div>
+  </div>
+</div>
 
-            <div id="carro-div">
-              
-            </div>
-            </div>
-        </div>
-    </div>
-
-      <!-- Ventana usuario -->
-      <div id="myModal-3" class="modal">
-        <div class="modal-content">
-            <div class="usuario-container">
-                <div class="Header">
-                    <h3 class="Heading">Usuario</h3>
-                    <span class="close-3">&times;</span>
-                </div>
-                <div class="contenedor2">
-                    <button id="boton-datos">Informacion de los usuarios</button>
-                    <div id="usuario-div"></div>
-                </div>    
-            </div>
-        </div>
-    </div>
-
-    <nav class="nav-bar">
+<!-- Nav bar -->
+<nav class="nav-bar">
         <div class="nav">
             <a href="../index.html">
                 <img src="../img/dulzura-company-logo.png" class="brand-logo" alt="dulzura-company-logo">
@@ -69,45 +67,48 @@
             </div>
         </div>
     </nav>
-
-    <ul class="links-container">
-        <li class="link-item"><a href="caramelos.html" class="link">Caramelos</a></li>
-        <li class="link-item"><a href="galletas.html" class="link">Galletas</a></li>
-        <li class="link-item"><a href="chocolates.html" class="link">Chocolates</a></li>
-        <li class="link-item"><a href="premezclas.html" class="link">Premezclas</a></li>
-        <li class="link-item"><a href="jugos.html" class="link">Jugos</a></li>
-    </ul>
-
-    <main id="contenedor-productos-caramelos" class="formato-contenedor">
-    </main>
-
-
-    <footer>
-        <div class="footer-content">
-            <a href="../index.html">
-                <img src="../img/dulzura-company-logo.png" class="logo" alt="">
-            </a>
-            <div class="footer-ul-container">
-                <ul class="category">
-                    <li class="category-title">Productos:</li>
-                    <li><a href="caramelos.html" class="footer-link">Caramelos</a></li>
-                    <li><a href="galletas.html" class="footer-link">Galletas</a></li>
-                    <li><a href="chocolates.html" class="footer-link">Chocolates</a></li>
-                    <li><a href="premezclas.html" class="footer-link">Premezclas</a></li>
-                    <li><a href="jugos.html" class="footer-link">Jugos</a></li>
-      
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/stock.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/caramelos.js"></script>
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/c3d3193837.js" crossorigin="anonymous"></script>
     
+<!-- Lista de htmls -->
+<ul class="links-container">
+    <li class="link-item"><a href="caramelos.html" class="link">Caramelos</a></li>
+    <li class="link-item"><a href="galletas.html" class="link">Galletas</a></li>
+    <li class="link-item"><a href="chocolates.html" class="link">Chocolates</a></li>
+    <li class="link-item"><a href="premezclas.html" class="link">Premezclas</a></li>
+    <li class="link-item"><a href="jugos.html" class="link">Jugos</a></li>
+</ul>
+
+<!-- Contenedor productos  -->
+<main id="contenedor-productos-caramelos" class="formato-contenedor">
+</main>
+
+<footer>
+    <div class="footer-content">
+        <a href="../index.html">
+            <img src="../img/dulzura-company-logo.png" class="logo" alt="">
+        </a>
+        <div class="footer-ul-container">
+            <ul class="category">
+                <li class="category-title">Productos:</li>
+                <li><a href="caramelos.html" class="footer-link">Caramelos</a></li>
+                <li><a href="galletas.html" class="footer-link">Galletas</a></li>
+                <li><a href="chocolates.html" class="footer-link">Chocolates</a></li>
+                <li><a href="premezclas.html" class="footer-link">Premezclas</a></li>
+                <li><a href="jugos.html" class="footer-link">Jugos</a></li>
+  
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/stock.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/caramelos.js"></script>
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/c3d3193837.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

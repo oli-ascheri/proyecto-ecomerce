@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- FONT -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -20,100 +19,104 @@
 
 <body>
 
-   <!-- Carrito de compras -->
-   <div id="myModal" class="modal">
-    <div class="modal-content">
-        <div class="Cart-Container">
-            <div class="Header">
-                <h3 class="Heading">Carro de compras</h3>
-                <h5 id="Action">Eliminar todo</h5>
-                <span class="close">&times;</span>
-            </div>
+<!-- Carrito de compras -->
+<div id="myModal" class="modal">
+ <div class="modal-content">
+     <div class="Cart-Container">
+         <div class="Header">
+             <h3 class="Heading">Carro de compras</h3>
+             <h5 id="Action">Eliminar todo</h5>
+             <span class="close">&times;</span>
+         </div>
 
-            <div id="carro-div">
-              
+         <div id="carro-div">
+           
+         </div>
+         </div>
+     </div>
+ </div>
+
+<!-- Ventana usuario -->
+<div id="myModal-3" class="modal">
+  <div class="modal-content">
+      <div class="usuario-container">
+          <div class="Header">
+              <h3 class="Heading">Usuario</h3>
+              <span class="close-3">&times;</span>
+          </div>
+          <div class="contenedor2">
+              <button id="boton-datos">Informacion de los usuarios</button>
+              <div id="usuario-div"></div>
+          </div>    
+      </div>
+  </div>
+</div>
+
+<!-- Nav bar -->
+<nav class="nav-bar">
+    <div class="nav">
+        <a href="index.html">
+            <img src="img/dulzura-company-logo.png" class="brand-logo" alt="dulzura-company-logo">
+        </a>
+        <div class="nav-items">
+            <div class="search">
+                <input type="text" class="search-box" placeholder="Caramelos, Galletas, Chocolates">
+                <button id="search-btn">Buscar</button>
             </div>
-            </div>
+            <button id="myBtn3"><i class="fa-solid fa-user"></i></button>
+            <a href="#"><i class="fa-solid fa-heart"></i></a>
+            <button id="myBtn"><i class="fas fa-shopping-cart"></i><div id="contadorCarrito"></div></button>
         </div>
     </div>
+</nav>
 
-      <!-- Ventana usuario -->
-      <div id="myModal-3" class="modal">
-        <div class="modal-content">
-            <div class="usuario-container">
-                <div class="Header">
-                    <h3 class="Heading">Usuario</h3>
-                    <span class="close-3">&times;</span>
-                </div>
-                <div class="contenedor2">
-                    <button id="boton-datos">Informacion de los usuarios</button>
-                    <div id="usuario-div"></div>
-                </div>    
-            </div>
-        </div>
+<!-- Lista de htmls -->
+<ul class="links-container">
+    <li class="link-item"><a href="pages/caramelos.html" class="link">Caramelos</a></li>
+    <li class="link-item"><a href="pages/galletas.html" class="link">Galletas</a></li>
+    <li class="link-item"><a href="pages/chocolates.html" class="link">Chocolates</a></li>
+    <li class="link-item"><a href="pages/premezclas.html" class="link">Premezclas</a></li>
+    <li class="link-item"><a href="pages/jugos.html" class="link">Jugos</a></li>
+</ul>
+
+<!-- Primera plana -->
+<header class="primer-section">
+    <div class="content">
+        <img src="img/dulzura-company-logo.png" class="logo" alt="">
+        <p class="sub-heading">¡Bienvenido a nuestro sitio web!</p>
+        <p class="second-sub-heading">Aqui podras ver toda nuestra variedad de productos y realizar la compra de manera facil y practica.</p>
+        <button class="comenzar-boton">
+            <a href="pages/caramelos.html">COMENZAR</a>
+        </button>
     </div>
+</header>
 
-    <nav class="nav-bar">
-        <div class="nav">
-            <a href="index.html">
-                <img src="img/dulzura-company-logo.png" class="brand-logo" alt="dulzura-company-logo">
-            </a>
-            <div class="nav-items">
-                <div class="search">
-                    <input type="text" class="search-box" placeholder="Caramelos, Galletas, Chocolates">
-                    <button id="search-btn">Buscar</button>
-                </div>
-                <button id="myBtn3"><i class="fa-solid fa-user"></i></button>
-                <a href="#"><i class="fa-solid fa-heart"></i></a>
-                <button id="myBtn"><i class="fas fa-shopping-cart"></i><div id="contadorCarrito"></div></button>
-            </div>
-        </div>
-    </nav>
-
-    <ul class="links-container">
-        <li class="link-item"><a href="pages/caramelos.html" class="link">Caramelos</a></li>
-        <li class="link-item"><a href="pages/galletas.html" class="link">Galletas</a></li>
-        <li class="link-item"><a href="pages/chocolates.html" class="link">Chocolates</a></li>
-        <li class="link-item"><a href="pages/premezclas.html" class="link">Premezclas</a></li>
-        <li class="link-item"><a href="pages/jugos.html" class="link">Jugos</a></li>
-    </ul>
-
-    <header class="primer-section">
-        <div class="content">
+<footer>
+    <div class="footer-content">
+        <a href="index.html">
             <img src="img/dulzura-company-logo.png" class="logo" alt="">
-            <p class="sub-heading">¡Bienvenido a nuestro sitio web!</p>
-            <p class="second-sub-heading">Aqui podras ver toda nuestra variedad de productos y realizar la compra de manera facil y practica.</p>
-            <button class="comenzar-boton">
-                <a href="pages/caramelos.html">COMENZAR</a>
-            </button>
+        </a>
+        <div class="footer-ul-container">
+            <ul class="category">
+                <li class="category-title">Productos:</li>
+                <li><a href="pages/caramelos.html" class="footer-link">Caramelos</a></li>
+                <li><a href="pages/galletas.html" class="footer-link">Galletas</a></li>
+                <li><a href="pages/chocolates.html" class="footer-link">Chocolates</a></li>
+                <li><a href="pages/premezclas.html" class="footer-link">Premezclas</a></li>
+                <li><a href="pages/jugos.html" class="footer-link">Jugos</a></li>
+  
+            </ul>
         </div>
-    </header>
+    </div>
+</footer>
 
-    <footer>
-        <div class="footer-content">
-            <a href="index.html">
-                <img src="img/dulzura-company-logo.png" class="logo" alt="">
-            </a>
-            <div class="footer-ul-container">
-                <ul class="category">
-                    <li class="category-title">Productos:</li>
-                    <li><a href="pages/caramelos.html" class="footer-link">Caramelos</a></li>
-                    <li><a href="pages/galletas.html" class="footer-link">Galletas</a></li>
-                    <li><a href="pages/chocolates.html" class="footer-link">Chocolates</a></li>
-                    <li><a href="pages/premezclas.html" class="footer-link">Premezclas</a></li>
-                    <li><a href="pages/jugos.html" class="footer-link">Jugos</a></li>
-      
-                </ul>
-            </div>
-        </div>
-    </footer>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/stock.js"></script>
+<script src="js/main.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/stock.js"></script>
-    <script src="js/main.js"></script>
-
-        <!-- Font Awesome -->
-        <script src="https://kit.fontawesome.com/c3d3193837.js" crossorigin="anonymous"></script>
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/c3d3193837.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

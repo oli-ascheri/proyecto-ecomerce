@@ -1,4 +1,3 @@
-// BUSCADOR
 // OPERADOR LOGICO OR
 
 let carritoDeCompras = JSON.parse(localStorage.getItem("Carrito de compras")) || []
@@ -30,18 +29,13 @@ function mostrarProductos(stockF, contenedor){
     stockF.forEach((item) => {
         let div = document.createElement('div')
         div.className = 'producto'
-        div.innerHTML = `<div class="card">
+        div.innerHTML = `<div id="card"">
                             <div class="card-image">
                                 <img src="${item.img}">
                                 <span class="card-title">${item.nombre}</span>
                             </div>
                             <div class="card-content">
                                 <p>$${item.precio}</p>
-                            </div>
-                            <div class="counter">
-                                <div onClick="restarCantidades()"class="btn6">-</div>
-                                <div id="count">0</div>
-                                <div onClick="sumarCantidades()" class="btn5">+</div>
                             </div>
                             <div class="car-content">
                                 <button onClick="agregarCarrito(${stock.indexOf(item)})" id="boton" class="car-buttom">
@@ -68,12 +62,9 @@ const agregarCarrito = (item) => {
         carritoDeCompras.push(itemCarrito)
         itemCarrito.cantidad = 1
       
-        
     } else {
         let indexCarrito = carritoDeCompras.findIndex(prod => prod.codigo == itemCarrito.codigo)
-        
         costoCarrito = itemCarrito.precio
-      
     } 
 
     const enJSON = JSON.stringify(carritoDeCompras)
@@ -93,7 +84,7 @@ const agregarCarrito = (item) => {
 
 let total   
 
-    const mostrarCarrito = () => {
+const mostrarCarrito = () => {
     
     total = 0
     carroDiv.innerHTML = ""
@@ -119,24 +110,10 @@ let total
                     `
         carroDiv.appendChild(div)
     })
+
     mostrarTotal()
-    }
-
-// Cantidades
-
-let cantidadCarrito = 0
-
-
-const sumarCantidades = (item) => {
-    cantidadCarrito++
     
-  document.getElementById('count').innertext = cantidadCarrito 
-  console.log(item.codigo);
-}
-const restarCantidades = () => {
-    cantidadCarrito--
-    document.getElementsByClassName("count").innerText = cantidadCarrito
-  }
+    }
 
 // Contador del carrito
 
@@ -260,7 +237,3 @@ botonUsuario.onclick = () => {
             })
         })
     }
-    
-
-
-    
